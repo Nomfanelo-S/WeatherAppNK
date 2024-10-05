@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src\styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <header>
+        <form class="search-form" id="search-form">
+          <input
+            class="search-input"
+            type="search"
+            placeholder="Enter a city.."
+            id="search-input"
+            required
+          />
+          <input
+            class="submit"
+            type="submit"
+            value="Search"
+            id="search-button"
+          />
+        </form>
+      </header>
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 class="current-city" id="current-city">Paris</h1>
+            <p class="current-details">
+              <span class="current-date" id="current-date">Saturday 15:30</span
+              >, moderate rain
+              <br />
+              Humidity: <strong class="humidity">87%</strong>, Wind:
+              <strong class="speed">7.2km/h</strong>
+            </p>
+          </div>
+          <div class="current-temperature" id="current-temperature">
+            <span class="current-temperature-icon" id="current-temperature-icon"
+              >☀️</span
+            >
+            <span
+              class="current-temperature-value"
+              id="current-temperature-value"
+              >14</span
+            >
+            <span class="current-temperature-unit" id="current-temperature-unit"
+              >°C</span
+            >
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>
+          This project was coded by
+          <a href="https://github.com/Nomfanelo-S" target="_blank"
+            >Nomfanelo Skhosana</a
+          >
+          and it's
+          <a
+            href="https://github.com/Nomfanelo-S/SheCodes-project"
+            target="_blank"
+          >
+            on GitHub</a
+          >
+          and
+          <a
+            href="https://precious-marzipan-340869.netlify.app/"
+            target="_blank"
+            >hosted on Netlify</a
+          >
+        </p>
+      </footer>
+    </div>
+  </body>
+  <script src="src/index.js"></script>
+</html>
