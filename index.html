@@ -4,77 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/syles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    
+<title>SheCodes Weather App</title>
   </head>
   <body>
-    <div class="container" id="container">
-      <header>
-        <form class="search-form" id="search-form">
-          <input
-            class="search-input"
-            type="search"
-            placeholder="Enter a city.."
-            id="search-input"
-            required
-          />
-          <input
-            class="submit"
-            type="submit"
-            value="Search"
-            id="search-button"
-          />
-        </form>
-      </header>
-      <main>
+    <div class="container">
+    <header>
+        <div>
+          <form id="search-form">
+        <input type="search" class="search-input" placeholer="Enter a city" id="search-input"required/>
+        <input type="submit" class="search-button" id="search-button"/>
+      </form>
+    </header>
+    <main>
+      <div class="weather-status">
         <div class="current-weather">
-          <div>
-            <h1 class="current-city" id="current-city">Paris</h1>
-            <p class="current-details">
-              <span class="current-date" id="current-date">Saturday 15:30</span
-              >, moderate rain
-              <br />
-              Humidity: <strong class="humidity">87%</strong>, Wind:
-              <strong class="speed">7.2km/h</strong>
-            </p>
-          </div>
-          <div class="current-temperature" id="current-temperature">
-            <span class="current-temperature-icon" id="current-temperature-icon"
-              >☀️</span
-            >
-            <span
-              class="current-temperature-value"
-              id="current-temperature-value"
-              >14</span
-            >
-            <span class="current-temperature-unit" id="current-temperature-unit"
-              >°C</span
-            >
-          </div>
-        </div>
-      </main>
-      <footer>
-        <p>
-          This project was coded by
-          <a href="https://github.com/Nomfanelo-S" target="_blank"
-            >Nomfanelo Skhosana</a
-          >
-          and it's
-          <a
-            href="https://github.com/Nomfanelo-S/SheCodes-project"
-            target="_blank"
-          >
-            on GitHub</a
-          >
-          and
-          <a
-            href="https://precious-marzipan-340869.netlify.app/"
-            target="_blank"
-            >hosted on Netlify</a
-          >
+        <h1 class="current-city" id="current-city"></h1>
+        <p class="weather-details">
+          <span class="current-date" id="current-date"></span>, <span id="weather-description"></span> <br />
+          <span > Humidity: <strong id="humidity"> %</strong></span> <span>Wind: <strong id="wind"></strong></span>
         </p>
-      </footer>
+      </div>
+      <div class="current-temperature">
+        <span id="icon">
+            <img src="" class="current-temperature-icon" id="current-temperature-icon">
+        </span> 
+        <span class="current-temperature-value" id="current-temperature-value"></span>
+        <span class="current-temperature-unit" id="current-temperature-unit">°C</span>
     </div>
+   </div>
+   <div class="weather-forecast">
+    <div class="forecast-day">Tue</div>
+    <div class="forecast-icon">🌤️</div>
+    <div class="forecast-temperatures"><strong>15C</strong>/14C</div>
+
+   </div>
+    </main>
+
+    <footer>
+      The project was coded by
+      <a href="https://github.com/Nomfanelo-S" target="_blank">
+        Nomfanelo Skhosana</a
+      >
+      and it's on
+      <a
+        href="https://github.com/Nomfanelo-S/SheCodes-WeatherAppNK"
+        target="_blank"
+        >GitHub</a
+      >
+      and hosted on
+      <a href="https://skhosanaweatherapp.netlify.app/" target="_blank"
+        >Netlify</a
+      >
+    </footer>   
+        </div>
+     
   </body>
   <script src="src/index.js"></script>
 </html>
