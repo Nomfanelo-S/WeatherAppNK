@@ -18,8 +18,9 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed} km/h`;
   iconImageElement.innerHTML = `<img src= "${response.data.condition.icon_url}" class="current-temperature-icon" id="current-temperature-icon">`;
-
   currentTemperatureElement.innerHTML = Math.round(temperature);
+
+  getForecast(response.data.city);
 }
 function formateDate(date) {
   let hours = date.getHours();
@@ -56,6 +57,9 @@ function searchEngine(event) {
 
   searchCity(searchInputElement.value);
 }
+function getForecast(city) {
+  axios.get(apiUrl).then(forecastDisplay);
+}
 function forecastDisplay() {
   let days = ["Tue", "Wed", "Thurs", "Fri", "Sat"];
   let forecastHtml = "";
@@ -79,4 +83,5 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchEngine);
 
 searchCity("Johannesburg");
+
 forecastDisplay();
