@@ -12,7 +12,7 @@ function refreshWeather(response) {
   let date = new Date(response.data.time * 1000);
   let iconImageElement = document.querySelector(`#icon`);
 
-  currentDateElement.innerHTML = formateDate(date);
+  currentDateElement.innerHTML = formatDate(date);
   currentCityElement.innerHTML = response.data.city;
   weatherDescription.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
@@ -22,7 +22,7 @@ function refreshWeather(response) {
 
   getForecast(response.data.city);
 }
-function formateDate(date) {
+function formatDate(date) {
   let hours = date.getHours();
   let minutes = date.getMinutes();
 
@@ -57,23 +57,45 @@ function searchEngine(event) {
 
   searchCity(searchInputElement.value);
 }
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
+  let apiKey = `083bfotb109a4cdefa3925a78a10a2f3`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}}&key=${apiKey}`;
+
   axios.get(apiUrl).then(forecastDisplay);
 }
-function forecastDisplay() {
-  let days = ["Tue", "Wed", "Thurs", "Fri", "Sat"];
+function forecastDisplay(response) {
   let forecastHtml = "";
 
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
     <div class="weather-forecast-details">
-   <div class="forecast-day">${day}</div>
-    <div class="forecast-icon">🌤️</div>
-    <div class="forecast-temperatures"><strong>15</strong>14</div>
+   <div class="forecast-day">${formatDay(day.time)}
+
+   <img src="${day.condition.icon_url}" class="forecast-icon"/>
+
+    <div class="forecast-temp">
+    <div class="forecast-temp-max"><strong>${Math.round(
+      day.temperature.maximum
+    )}°</strong></div>
+    <div class= "forecast-temp-min">${Math.round(
+      day.temperature.minimum
+    )}°</div>
     </div>
+    </div>
+   
     `;
+    }
   });
   let forecastElement = document.querySelector("#weather-forecast");
   forecastElement.innerHTML = forecastHtml;
@@ -83,5 +105,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchEngine);
 
 searchCity("Johannesburg");
-
-forecastDisplay();
