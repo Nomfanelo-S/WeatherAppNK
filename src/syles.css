@@ -22,7 +22,7 @@ main {
 }
 
 .search-input {
-  background-color: rgb(219, 219, 219);
+  background-color: rgba(191, 206, 242, 0.5);
   border: none;
   border-radius: 6px;
   font-size: 16px;
@@ -80,7 +80,6 @@ main {
 }
 .weather-forecast-tab {
   font-size: 28px;
-  margin-bottom: 18px;
 }
 .weather-forecast-details {
   display: flex;
@@ -91,6 +90,10 @@ main {
   color: #59021f;
   font-size: 15px;
   line-height: 15px;
+  margin: 10px 5px;
+  padding: 10px 5px;
+  background-color: rgb(191, 206, 242);
+  border-radius: 20px;
 }
 .forecast-icon {
   font-size: 5px;
